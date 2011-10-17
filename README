@@ -2,4 +2,7 @@ Author HugoKuo
 
 The repo is Swift SAIO configuration files
 
+swift -A http://%keystone_ip%:5000/v1.0 -U %name% -K %passwd% stat
+
+
 
