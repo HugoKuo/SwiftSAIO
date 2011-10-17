@@ -2,6 +2,11 @@ Author HugoKuo
 
 The repo is Swift SAIO configuration files
 
+1. Install Swift 
+2. Clone keystone code , and then python setup.py develop
+3. Excute sampledata.py on keystone_host
+
+
 swift -A http://%keystone_ip%:5000/v1.0 -U %name% -K %passwd% stat
 
 
