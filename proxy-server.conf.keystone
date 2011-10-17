@@ -1,0 +1,31 @@
+[DEFAULT]
+bind_port = 8888
+user = root 
+log_facility = LOG_LOCAL1
+
+[pipeline:main]
+pipeline = catch_errors cache keystone proxy-server
+
+[app:proxy-server]
+use = egg:swift#proxy
+#allow_account_management = true
+account_autocreate = true
+
+[filter:keystone]
+use = egg:keystone#tokenauth
+auth_protocol = http
+auth_host = 192.168.1.105
+auth_port = 35357
+admin_token = 999888777666
+delay_auth_decision = 0
+service_protocol = http
+service_host = 192.168.1.105
+service_port = 8100
+service_pass = dTpw
+
+[filter:cache]
+use = egg:swift#memcache
+set log_name = cache
+
+[filter:catch_errors]
+use = egg:swift#catch_errors
